@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo tabs trong jQuery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="tab-wrapper">
+        <ul class="tab">
+            <li>
+                <a href="#tab-main-info" class="active">THÔNG TIN CHÍNH</a>
+            </li>
+            <li>
+                <a href="#tab-image">HÌNH ẢNH</a>
+            </li>
+            <li>
+                <a href="#tab-seo">SEO</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-item" id="tab-main-info">
+                Tab thông tin chính
+            </div>
+
+            <div class="tab-item" id="tab-image">
+                Tab hình ảnh
+            </div>
+
+            <div class="tab-item" id="tab-seo">
+                Tab SEO
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.tab-item').hide();
+            $('#tab-main-info').show();
+
+            $('.tab a').click(function (e) {
+                e.preventDefault();
+
+                $('.tab a').removeClass('active');
+                $(this).addClass('active');
+
+                $('.tab-item').hide();
+
+                var tab = $(this).attr('href');
+                $(tab).show();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

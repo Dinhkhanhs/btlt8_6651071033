@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Home</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="image-effect" id="image-effect-2">
+        <img src="off.png" class="fadeEffect">
+        <img src="on.png">
+    </div>
+
+    <div class="switch-btn">
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox toggle-switch-2" id="myonoffswitch"
+                tabindex="0">
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myonoffswitch').change(function () {
+                if ($(this).is(':checked')) {
+                    $('body').css({
+                        'background-color': '#ffffff',
+                        'color': '#000000'
+                    });
+
+                    $('#image-effect-2 img').attr('src', 'on.png');
+                } else {
+                    $('body').css({
+                        'background-color': '#222222',
+                        'color': '#ffffff'
+                    });
+
+                    $('#image-effect-2 img').attr('src', 'off.png');
+                }
+            });
+
+            $('#myonoffswitch').trigger('change');
+        });
+    </script>
+
+</body>
+
+</html>
